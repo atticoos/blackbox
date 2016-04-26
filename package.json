@@ -14,7 +14,8 @@
     "bluebird": "^3.3.5",
     "cheerio": "^0.20.0",
     "redis": "^2.6.0-1",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "selenium-webdriver": "^2.53.1"
   },
   "devDependencies": {
     "babel-cli": "^6.7.7",
