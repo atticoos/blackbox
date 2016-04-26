@@ -37,7 +37,15 @@ export function login (user, passwd, hiddenFormFields) {
 export function getListingsPage () {
   return request.getAsync(`${BASE_URL}/watch-live-tv`, {
     headers: {
-      'UserAgent': USER_AGENT
+      'User-Agent': USER_AGENT
+    }
+  });
+}
+
+export function loadChannel (channel) {
+  return request.getAsync(`${BASE_URL}/${channel}`, {
+    headers: {
+      'User-Agent': USER_AGENT
     }
   });
 }

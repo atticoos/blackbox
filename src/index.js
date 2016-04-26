@@ -16,4 +16,3 @@ Fetcher.getLoginRequestId()
   console.log(`Found ${channels.length * 2} programs`);
   console.log(JSON.stringify(channels, null, 2));
 })
-
