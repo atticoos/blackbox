@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir lib/",
-    "start": "npm run build && node lib/"
+    "start": "npm run build && node lib/server"
   },
   "author": "Atticus White <contact@atticuswhite.com> (http://atticuswhite.com/)",
   "license": "MIT",
@@ -15,6 +15,7 @@
     "cheerio": "^0.20.0",
     "redis": "^2.6.0-1",
     "request": "^2.72.0",
+    "restify": "^4.0.4",
     "selenium-webdriver": "^2.53.1"
   },
   "devDependencies": {
