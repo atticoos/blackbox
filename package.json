@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --out-dir lib/",
+    "build": "babel server --out-dir lib/",
     "start": "npm run build && node lib/server"
   },
   "author": "Atticus White <contact@atticuswhite.com> (http://atticuswhite.com/)",
