@@ -6,12 +6,9 @@ import * as Parser from './parser';
 const username = process.env.XFINITY_USERNAME;
 const password = process.env.XFINITY_PASSWORD;
 
-
-Fetcher.getLoginRequestId().then(response => {
-  return Parser.parseFormFields(response.body);
-})
+Fetcher.getLoginRequestId()
+.then(response => Parser.parseFormFields(response.body))
 .then(fields => Fetcher.login(username, password, fields))
-.then(response => console.log('body', response.body))
 .then(() => Fetcher.getListingsPage())
 .then(response => Parser.parseListingPage(response.body))
 .then(channels => {
