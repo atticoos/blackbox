@@ -1,18 +1,20 @@
 'use strict';
 
-import * as Fetcher from './fetcher';
-import * as Parser from './parser';
+import * as Xfinity from './xfinity';
+import * as Cache from './cache';
 
 const username = process.env.XFINITY_USERNAME;
 const password = process.env.XFINITY_PASSWORD;
 
-Fetcher.getLoginRequestId()
-.then(response => Parser.parseFormFields(response.body))
-.then(fields => Fetcher.login(username, password, fields))
-.then(() => Fetcher.getListingsPage())
-.then(response => Parser.parseListingPage(response.body))
+Xfinity.needsLogin().then(needsLogin => {
+  if (needsLogin) {
+    return Xfinity.login(username, password);
+  }
+})
+.then(() => Xfinity.loadChannels())
 .then(channels => {
   console.log(`Found ${channels.length} channels`);
   console.log(`Found ${channels.length * 2} programs`);
   console.log(JSON.stringify(channels, null, 2));
 })
+.finally(() => Cache.close())
